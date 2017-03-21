@@ -1,14 +1,17 @@
 package com.uprog.eric.fragmentpractice;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.nfc.Tag;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.JsonReader;
+import android.util.Log;
 import android.widget.TextView;
 
 import org.json.JSONObject;
@@ -19,7 +22,7 @@ import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +39,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             PM_Fragment pm_fragment = new PM_Fragment();
-            fragmentTransaction.replace(android.R.id.content,pm_fragment, fileString.substring(0,10));
-            //pm_fragment.textView.setText();
+            fragmentTransaction.replace(android.R.id.content,pm_fragment);
+            pm_fragment.setText(fileString.substring(0,10));
         }
         fragmentTransaction.commit();
-
-
     }
     public String fileRead(){
         String ret = "";

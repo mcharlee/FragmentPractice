@@ -14,7 +14,9 @@ import android.widget.TextView;
  */
 public class PM_Fragment extends Fragment {
 
-    TextView textView;
+    private TextView textView;
+    private View view;
+    private String text;
 
     public PM_Fragment() {
         // Required empty public constructor
@@ -24,10 +26,14 @@ public class PM_Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_pm, container, false);
-        textView = (TextView)view.findViewById(R.id.jsonView);
+        view = inflater.inflate(R.layout.fragment_pm, container, false);
+        textView = (TextView) view.findViewById(R.id.jsonView);
+        textView.setText(this.text);
         return view;
     }
-
+    public void setText(String text){
+        this.text = text;
+    }
 }
