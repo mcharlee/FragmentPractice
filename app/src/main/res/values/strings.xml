@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FragmentPractice</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="landscape_message">The app is now in landscape mode.</string>
+    <string name="portrait_message">The app is now in portrait mode.</string>
+    <string name="FILE_EMPTY">The file was empty.</string>
+</resources>
