@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             PM_Fragment pm_fragment = new PM_Fragment();
-            fragmentTransaction.replace(android.R.id.content,pm_fragment);
-            pm_fragment.textView.setText(fileString.substring(0,10));
+            fragmentTransaction.replace(android.R.id.content,pm_fragment, fileString.substring(0,10));
+            //pm_fragment.textView.setText();
         }
         fragmentTransaction.commit();
 
