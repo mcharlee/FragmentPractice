@@ -7,16 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
-
 import org.json.JSONArray;
-import org.json.JSONException;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PM_Fragment extends Fragment implements View.OnClickListener{
+public class PM_Fragment extends Fragment {
 
     private TextView textView;
     private View view;
@@ -37,23 +36,11 @@ public class PM_Fragment extends Fragment implements View.OnClickListener{
         view = inflater.inflate(R.layout.fragment_pm, container, false);
         textView = (TextView) view.findViewById(R.id.jsonView);
         textView.setText(this.text);
-        Button button_refresh = (Button)view.findViewById(R.id.button_refresh);
-        button_refresh.setOnClickListener(this);
         return view;
     }
-    public void setText(String text){
+
+    public void setText(String text) {
         this.text = text;
     }
 
-    @Override
-    public void onClick(View view) {
-        if(view.getId() == R.id.button_refresh){
-            try {
-                jsonArray = MainActivity.jsonArray;
-                text = jsonArray.getJSONObject(2).getString("scripture_text");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
