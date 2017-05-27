@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import android.widget.Button;
 <<<<<<< HEAD
 import android.widget.EditText;
 =======
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======
@@ -54,6 +57,7 @@ public class PM_Fragment extends Fragment implements View.OnClickListener{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String getText(){
         String retText = etVerse.getText().toString();
         return retText;
@@ -73,6 +77,8 @@ public class PM_Fragment extends Fragment implements View.OnClickListener{
         }
     }
 >>>>>>> origin/master
+=======
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======

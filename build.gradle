@@ -7,10 +7,14 @@ buildscript {
     dependencies {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  HEAD
         classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.android.tools.build:gradle:2.3.1'
  origin/master
+=======
+        classpath 'com.android.tools.build:gradle:2.3.0'
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======
         classpath 'com.android.tools.build:gradle:2.3.0'
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments

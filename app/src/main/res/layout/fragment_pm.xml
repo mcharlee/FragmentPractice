@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <!-- TODO: Update blank fragment layout
     <LinearLayout
 =======
@@ -57,6 +58,15 @@
 
 >>>>>>> origin/master
 =======
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
+=======
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/jsonView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/portrait_message" />
+
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======
     <!-- TODO: Update blank fragment layout -->
