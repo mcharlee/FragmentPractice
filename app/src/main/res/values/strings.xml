@@ -8,5 +8,5 @@
     <string name="FILE_EMPTY">The file was empty.</string>
     <string name="Button_Submit">Submit</string>
     <string name="Button_Random">Show a random verse</string>
-    <string name="TextView_Default">Your scripture will appear here.</string>
+    <string name="TextView_Default">Your scripture will appear here. Unfortunately the program only has access up to D&amp;C 135:3.</string>
 </resources>
