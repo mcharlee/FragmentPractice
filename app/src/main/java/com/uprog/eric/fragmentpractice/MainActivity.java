@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ActionBarOverlayLayout;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Context context = this;
     JSONArray blurp;
     PM_Fragment pm_fragment;
-    Button submitButton;
     TextView textView;
     EditText etVerse;
 
@@ -40,10 +40,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String randVerse;
     String randVerseTitle;
 
+    //Button Variables
+    Button submitButton;
+    Button gotoButton;
+    Button resetButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Initialize Buttons for gotoClick and resetClick methods
+        gotoButton = (Button) findViewById(R.id.gotoButton);
+        resetButton = (Button) findViewById(R.id.resetButton);
 
         /*Configuration config = getResources().getConfiguration();
 
@@ -184,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String book = blurp.getJSONObject(rand).getString("book_title");
         StringBuilder retText = new StringBuilder();
         if(searchText.isEmpty()){
-            textView.setText("Please choose a vearse first.");
+            textView.setText("Please choose a verse first.");
         }
         else {
             retText.append("Chapter " + blurp.getJSONObject(rand).getString("chapter_number") + "\n");
@@ -198,5 +207,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             textView.setText(retText.toString());
         }
+        searchText="";
+        etVerse.setText("");
+        resetButton.setVisibility(View.VISIBLE);
+        gotoButton.setVisibility(View.INVISIBLE);
+
+    }
+    public void resetClick(View view){
+        resetButton.setVisibility(View.INVISIBLE);
+        gotoButton.setVisibility(View.VISIBLE);
+        textView.setText(R.string.TextView_Default);
     }
 }

@@ -9,5 +9,6 @@
     <string name="Button_Submit">Submit</string>
     <string name="Button_Random">Show a random verse</string>
     <string name="Button_Goto">See whole chapter</string>
-    <string name="TextView_Default"><![CDATA[Your scripture will appear here. \n\n Unfortunately the program only has access up to D&C 135:3 for the time being. \n\n Random scriptures will be chosen from the Book of Mormon, but you can enter a verse from another book if you like.]]>  </string>
+    <string name="Button_Reset">Reset</string>
+    <string name="TextView_Default"><![CDATA[Your scripture will appear here. \n\nRandom scriptures can be chosen from the Old Testament, New Testament, Book of Mormon, and Doctrine and Covenants by entering one into the search bar.]]>  </string>
 </resources>
