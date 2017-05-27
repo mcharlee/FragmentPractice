@@ -32,6 +32,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView textView;
     EditText etVerse;
 
+    //Variables needed for the randomClick and gotoClick methods
+    String searchText;
+    int min = 0;
+    int max;
+    int rand;
+    String randVerse;
+    String randVerseTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public JSONArray createJSON() {
         JSONArray ret = new JSONArray();
         InputStream is;
-        StringBuilder sb;
         try {
             is = getAssets().open("lds_scriptures.json");
             if (is != null) {
@@ -103,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 shortText = blurp.getJSONObject(i).getString("verse_short_title");
                 if (searchText.equalsIgnoreCase(longText) || searchText.equalsIgnoreCase(shortText)) {
                     retText = longText + "\n\n" + blurp.getJSONObject(i).getString("scripture_text");
+                    rand = i;
                     break;
                 } else {
                     retText = "Could not find verse. Try again.";
@@ -115,15 +123,80 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void randomClick(View view) {
-        int firstBOMVerse = 31102;
-        int totalBOMVerses = 6604;
-        try {
-            int rand = (int)(firstBOMVerse + (Math.random() * totalBOMVerses));
-            String randVerseTitle = blurp.getJSONObject(rand).getString("verse_title");
-            String randVerse = blurp.getJSONObject(rand).getString("scripture_text");
-            textView.setText(randVerseTitle + "\n\n" + randVerse);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        searchText = etVerse.getText().toString();
+        if(searchText.equalsIgnoreCase("Book of Mormon")){
+            min = 31102;
+            max = 37705;
+            try {
+                rand = (int)(min + (Math.random() * (max - min)));
+                randVerseTitle = blurp.getJSONObject(rand).getString("verse_title");
+                randVerse = blurp.getJSONObject(rand).getString("scripture_text");
+                textView.setText(randVerseTitle + "\n\n" + randVerse);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(searchText.equalsIgnoreCase("New Testament")){
+            min = 23145;
+            max = 31101;
+            try {
+                rand = (int)(min + (Math.random() * (max - min)));
+                randVerseTitle = blurp.getJSONObject(rand).getString("verse_title");
+                randVerse = blurp.getJSONObject(rand).getString("scripture_text");
+                textView.setText(randVerseTitle + "\n\n" + randVerse);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(searchText.equalsIgnoreCase("Old Testament")){
+            min = 0;
+            max = 23144;
+            try {
+                rand = (int)(min + (Math.random() * (max - min)));
+                randVerseTitle = blurp.getJSONObject(rand).getString("verse_title");
+                randVerse = blurp.getJSONObject(rand).getString("scripture_text");
+                textView.setText(randVerseTitle + "\n\n" + randVerse);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(searchText.equalsIgnoreCase("Doctrine and Covenants")){
+            min = 37706;
+            max = 41359;
+            try {
+                rand = (int)(min + (Math.random() * (max - min)));
+                randVerseTitle = blurp.getJSONObject(rand).getString("verse_title");
+                randVerse = blurp.getJSONObject(rand).getString("scripture_text");
+                textView.setText(randVerseTitle + "\n\n" + randVerse);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        else{
+            textView.setText("Please choose \"Old Testament\" , \"New Testament\" , \"Book of Mormon\" , or \"Doctrine and Covenants\" for the random to work.");
+        }
+    }
+    public void gotoClick(View view) throws JSONException{
+        searchText = etVerse.getText().toString();
+        int searchChap;
+        int chap = blurp.getJSONObject(rand).getInt("chapter_number");
+        String searchBook;
+        String book = blurp.getJSONObject(rand).getString("book_title");
+        StringBuilder retText = new StringBuilder();
+        if(searchText.isEmpty()){
+            textView.setText("Please choose a vearse first.");
+        }
+        else {
+            retText.append("Chapter " + blurp.getJSONObject(rand).getString("chapter_number") + "\n");
+            for (int i = 0; i < blurp.length(); i++) {
+                searchBook = blurp.getJSONObject(i).getString("book_title");
+                searchChap = blurp.getJSONObject(i).getInt("chapter_number");
+                if (chap == searchChap && book.equalsIgnoreCase(searchBook)) {
+                    retText.append(blurp.getJSONObject(i).getString("verse_number") + ")  ");
+                    retText.append(blurp.getJSONObject(i).getString("scripture_text") + "\n");
+                }
+            }
+            textView.setText(retText.toString());
         }
     }
 }
