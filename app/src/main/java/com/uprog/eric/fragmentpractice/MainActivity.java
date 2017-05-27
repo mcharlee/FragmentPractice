@@ -12,12 +12,15 @@ import android.util.Log;
 import android.widget.TextView;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import android.view.View;
 import android.widget.Button;
 >>>>>>> origin/master
 import org.json.JSONArray;
 import org.json.JSONException;
+=======
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
 =======
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments
 import org.json.JSONObject;
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static JSONArray jsonArray;
     Context context = this;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     JSONArray blurp;
@@ -60,6 +64,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         String fileString = fileRead();
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments
+=======
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        String fileString = fileRead();
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
 
         Configuration config = getResources().getConfiguration();
 
@@ -73,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             PM_Fragment pm_fragment = new PM_Fragment();
             fragmentTransaction.replace(android.R.id.content,pm_fragment);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -117,6 +128,12 @@ public class MainActivity extends AppCompatActivity {
 
 =======
 >>>>>>> parent of 156523e... Added buttons, Removed Fragments
+=======
+            pm_fragment.setText(fileString.substring(0,10));
+        }
+        fragmentTransaction.commit();
+    }
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
     public String fileRead(){
         String ret = "";
 =======
@@ -145,8 +162,11 @@ public class MainActivity extends AppCompatActivity {
         }
         catch (IOException e) {
             e.printStackTrace();
+<<<<<<< HEAD
         } catch (JSONException e) {
             e.printStackTrace();
+=======
+>>>>>>> parent of 156523e... Added buttons, Removed Fragments
         }
         return ret;
     }
