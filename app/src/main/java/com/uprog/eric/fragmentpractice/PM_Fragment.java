@@ -6,7 +6,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 
 /**
@@ -15,6 +20,8 @@ import android.widget.TextView;
 public class PM_Fragment extends Fragment {
 
     private TextView textView;
+    private EditText etVerse;
+    private Button submitButton;
     private View view;
     private String text;
 
@@ -29,6 +36,7 @@ public class PM_Fragment extends Fragment {
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_pm, container, false);
+        etVerse = (EditText)view.findViewById(R.id.etVerse);
         textView = (TextView) view.findViewById(R.id.jsonView);
         textView.setText(this.text);
         return view;
@@ -36,4 +44,9 @@ public class PM_Fragment extends Fragment {
     public void setText(String text){
         this.text = text;
     }
+    public String getText(){
+        String retText = etVerse.getText().toString();
+        return retText;
+    }
+
 }

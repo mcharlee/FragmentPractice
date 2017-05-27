@@ -4,11 +4,32 @@
     android:layout_height="match_parent"
     tools:context="com.uprog.eric.fragmentpractice.PM_Fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/jsonView"
+    <!-- TODO: Update blank fragment layout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/portrait_message" />
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etVerse"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Enter a verse"/>
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Button_Submit" />
+        </LinearLayout>
 
+        <TextView
+            android:id="@+id/jsonView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/portrait_message" />
+    </LinearLayout>
+    -->
 </FrameLayout>
