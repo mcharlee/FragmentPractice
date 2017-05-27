@@ -6,6 +6,4 @@
     <string name="landscape_message">The app is now in landscape mode.</string>
     <string name="portrait_message">The app is now in portrait mode.</string>
     <string name="FILE_EMPTY">The file was empty.</string>
-    <string name="Button_Submit">Submit</string>
-    <string name="Button_Random">Show a random verse</string>
 </resources>
