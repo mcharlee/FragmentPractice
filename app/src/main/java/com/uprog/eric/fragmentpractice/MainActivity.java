@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 longText = blurp.getJSONObject(i).getString("verse_title");
                 shortText = blurp.getJSONObject(i).getString("verse_short_title");
                 if (searchText.equalsIgnoreCase(longText) || searchText.equalsIgnoreCase(shortText)) {
-                    retText = blurp.getJSONObject(i).getString("scripture_text");
+                    retText = longText + "\n\n" + blurp.getJSONObject(i).getString("scripture_text");
                     break;
                 } else {
                     retText = "Could not find verse. Try again.";
@@ -115,10 +115,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void randomClick(View view) {
+        int firstBOMVerse = 31102;
+        int totalBOMVerses = 6604;
         try {
-            int rand = (int) (Math.random() * blurp.length());
+            int rand = (int)(firstBOMVerse + (Math.random() * totalBOMVerses));
+            String randVerseTitle = blurp.getJSONObject(rand).getString("verse_title");
             String randVerse = blurp.getJSONObject(rand).getString("scripture_text");
-            textView.setText(randVerse);
+            textView.setText(randVerseTitle + "\n\n" + randVerse);
         } catch (JSONException e) {
             e.printStackTrace();
         }

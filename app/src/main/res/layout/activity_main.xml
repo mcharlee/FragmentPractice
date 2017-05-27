@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uprog.eric.fragmentpractice.MainActivity">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/etVerse"
-                android:layout_width="0px"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="Enter a verse" />
-            <Button
-                android:id="@+id/submitButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Button_Submit"/>
-        </LinearLayout>
-        <Button
-            android:id="@+id/randomButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Button_Random"
-            android:onClick="randomClick"/>
-        <TextView
-            android:id="@+id/jsonView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/TextView_Default"
-            android:padding="10dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <EditText
+            android:id="@+id/etVerse"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter a verse" />
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Button_Submit" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/randomButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="randomClick"
+        android:text="@string/Button_Random" />
+
+    <TextView
+        android:id="@+id/jsonView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:text="@string/TextView_Default" />
+
+</LinearLayout>
 
     <!--
     <fragment
@@ -63,4 +62,4 @@
         tools:layout_editor_absoluteX="0dp" />
     -->
 
-</android.support.constraint.ConstraintLayout>
+
