@@ -1,15 +1,12 @@
 package com.uprog.eric.fragmentpractice;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.nfc.Tag;
-import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+<<<<<<< HEAD
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
@@ -17,17 +14,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+=======
+import android.view.View;
+import android.widget.Button;
+>>>>>>> origin/master
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
-
 import java.io.*;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static JSONArray jsonArray;
     Context context = this;
+<<<<<<< HEAD
     JSONArray blurp;
     PM_Fragment pm_fragment;
     Button submitButton;
@@ -40,6 +41,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //String fileString = fileRead();
+=======
+    String fileString = null;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        jsonArray = fileRead();
+        try {
+            fileString = jsonArray.getJSONObject(1).getString("scripture_text");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+>>>>>>> origin/master
 
         /*Configuration config = getResources().getConfiguration();
 
@@ -53,8 +66,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else{
             pm_fragment = new PM_Fragment();
             fragmentTransaction.replace(android.R.id.content,pm_fragment);
+<<<<<<< HEAD
 
             //pm_fragment.setText(fileString.substring(fileString.indexOf("scripture_text"),fileString.indexOf("verse_title")));
+=======
+            pm_fragment.setText(fileString);
+>>>>>>> origin/master
         }
         fragmentTransaction.commit();
         */
@@ -67,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         submitButton.setOnClickListener(this);
 
     }
+<<<<<<< HEAD
 
     public JSONArray createJSON() {
         JSONArray ret = new JSONArray();
@@ -96,6 +114,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public String fileRead(){
         String ret = "";
+=======
+    public JSONArray fileRead(){
+        JSONArray ret = new JSONArray();
+>>>>>>> origin/master
         InputStream is;
         StringBuilder sb;
         try {
@@ -104,17 +126,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 InputStreamReader inputStreamReader = new InputStreamReader(is);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
+                //StringBuilder stringBuilder = new StringBuilder();
 
                 while ((receiveString = bufferedReader.readLine()) != null) {
-                    stringBuilder.append(receiveString);
+                    //stringBuilder.append(receiveString);
+                    JSONObject Jason = new JSONObject(receiveString);
+                    ret.put(Jason);
+
                 }
 
                 is.close();
-                ret = stringBuilder.toString();
             }
         }
         catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return ret;

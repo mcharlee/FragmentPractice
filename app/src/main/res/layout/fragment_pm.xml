@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.uprog.eric.fragmentpractice.PM_Fragment">
 
+<<<<<<< HEAD
     <!-- TODO: Update blank fragment layout
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,4 +33,34 @@
             android:text="@string/portrait_message" />
     </LinearLayout>
     -->
+=======
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/jsonView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/portrait_message" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"/>
+            <Button
+                android:id="@+id/button_refresh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Refresh"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </LinearLayout>
+
+>>>>>>> origin/master
 </FrameLayout>
